@@ -29,10 +29,10 @@ export function SafeImage({
     return (
       <div
         className={cn(
-          "flex items-center justify-center bg-gradient-to-br from-zen-primary/30 to-transparent text-sm text-zen-muted",
+          "flex w-full max-w-full min-w-0 items-center justify-center bg-gradient-to-br from-zen-primary/30 to-transparent text-sm text-zen-muted",
           className,
         )}
-        style={{ width, minHeight: height }}
+        style={{ aspectRatio: `${width} / ${height}` }}
       >
         Image
       </div>

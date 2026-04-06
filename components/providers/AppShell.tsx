@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { CalBookingProvider } from "@/context/CalBookingContext";
+import { HashScroll } from "@/components/layout/HashScroll";
 import { FirstVisitSchedulePrompt } from "@/components/layout/FirstVisitSchedulePrompt";
 import { PageLoader } from "@/components/layout/PageLoader";
 
@@ -29,6 +30,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <CalBookingProvider>
+      {!loading ? <HashScroll /> : null}
       {children}
       <FirstVisitSchedulePrompt
         open={showFirstVisit}

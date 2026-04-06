@@ -59,6 +59,17 @@ body {
   min-width: 0;
 }
 
+/* Anchor targets clear the fixed header when using /#section links */
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+@media (min-width: 1150px) {
+  section[id] {
+    scroll-margin-top: 8.5rem;
+  }
+}
+
 /* Cal.com inline embed: fill host width (booker max width is tuned via cssVarsPerTheme in SchedulePageContent) */
 .cal-inline-host cal-inline {
   width: 100%;

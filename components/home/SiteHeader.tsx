@@ -1,23 +1,50 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { GlassPanel } from "@/components/ui/GlassPanel";
-import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { siteMeta, navLinks } from "@/content/site";
 import { cn } from "@/lib/utils";
 
+function nameInitials(name: string) {
+  return (
+    name
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((w) => w[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase() || "HH"
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [avatarFailed, setAvatarFailed] = useState(false);
+  const initials = nameInitials(siteMeta.name);
 
   return (
     <header className="fixed inset-x-0 top-0 z-[1000] isolate px-4 pt-6 min-[1150px]:pt-10">
       <GlassPanel className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-3 py-3 pl-4 md:px-5">
         <Link href="/" className="flex items-center gap-3">
-          <span className="relative size-[68px] overflow-hidden rounded-full bg-gradient-to-br from-white/20 to-transparent">
-            <span className="absolute inset-0 flex items-center justify-center font-brand text-lg text-zen-text">
-              ZG
-            </span>
+          <span className="relative size-[68px] shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-white/20 to-transparent ring-1 ring-white/10">
+            {avatarFailed ? (
+              <span className="absolute inset-0 flex items-center justify-center font-brand text-lg text-zen-text">
+                {initials}
+              </span>
+            ) : (
+              <Image
+                src={siteMeta.profileImage}
+                alt=""
+                width={68}
+                height={68}
+                className="h-full w-full object-cover"
+                sizes="68px"
+                priority
+                onError={() => setAvatarFailed(true)}
+              />
+            )}
           </span>
           <span className="text-left">
             <span className="block font-brand text-lg text-zen-text">
@@ -45,9 +72,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <PrimaryButton href="#contact" className="hidden sm:inline-flex">
-            Hire Me
-          </PrimaryButton>
           <button
             type="button"
             className="flex size-12 items-center justify-center rounded-full bg-white/10 text-xl text-zen-text min-[1150px]:hidden"

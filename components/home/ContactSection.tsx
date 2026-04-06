@@ -1,17 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent } from "react";
 import { RotatingText } from "@/components/home/RotatingText";
 import { SocialLinks } from "@/components/home/SocialLinks";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
-import { budgetTags, rotatingContactWords, siteMeta } from "@/content/site";
-import { cn } from "@/lib/utils";
+import { useCalBooking } from "@/context/CalBookingContext";
+import { rotatingContactWords, siteMeta } from "@/content/site";
 
 export function ContactSection() {
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
+  const { openBookingModal } = useCalBooking();
 
   return (
     <section id="contact" className="pb-10 pt-16 md:pt-[71px]">
@@ -54,64 +51,34 @@ export function ContactSection() {
         </div>
 
         <div className="min-[1150px]:col-span-7">
-          <form
-            onSubmit={onSubmit}
-            className="relative overflow-hidden rounded-[40px] border-t border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] px-6 py-10 min-[1150px]:ml-8 min-[1150px]:px-14"
-          >
-            <div className="mb-6 grid gap-6">
-              <label className="sr-only" htmlFor="name">
-                Your name
-              </label>
-              <input
-                id="name"
-                name="name"
-                required
-                placeholder="Your name"
-                className="w-full border-b border-white/10 bg-transparent py-3 font-sans text-zen-text placeholder:text-zen-secondary focus:border-zen-text focus:outline-none"
-              />
-              <label className="sr-only" htmlFor="email">
-                Your email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="Your email"
-                className="w-full border-b border-white/10 bg-transparent py-3 font-sans text-zen-text placeholder:text-zen-secondary focus:border-zen-text focus:outline-none"
-              />
-              <label className="sr-only" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={4}
-                placeholder="Your Message..."
-                className="min-h-[120px] w-full border-b border-white/10 bg-transparent py-3 font-sans text-zen-text placeholder:text-zen-secondary focus:border-zen-text focus:outline-none"
-              />
+          <div className="relative overflow-hidden rounded-[40px] border-t border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] px-6 py-10 min-[1150px]:ml-8 min-[1150px]:px-14">
+            <p className="mb-2 text-[12px] font-semibold uppercase tracking-[1.1px] text-zen-muted">
+              Schedule
+            </p>
+            <h4 className="mb-3 font-display text-2xl font-medium text-zen-text md:text-3xl">
+              Book a meeting
+            </h4>
+            <p className="mb-8 max-w-md text-base leading-relaxed text-zen-muted">
+              Pick a time that works for you — we use Cal.com for scheduling. You
+              can open the calendar here or visit the full schedule page.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+              <PrimaryButton
+                type="button"
+                onClick={() => {
+                  void openBookingModal();
+                }}
+              >
+                Book with Cal.com
+              </PrimaryButton>
+              <Link
+                href="/schedule"
+                className="inline-flex h-14 items-center justify-center rounded-full border border-white/15 px-8 text-base font-semibold text-zen-text transition hover:border-white/25 hover:bg-white/5"
+              >
+                View schedule page
+              </Link>
             </div>
-
-            <ul className="mb-8 flex flex-wrap gap-3">
-              {budgetTags.map((t) => (
-                <li key={t}>
-                  <button
-                    type="button"
-                    className={cn(
-                      "rounded-full border-t border-white/10 bg-white/5 px-6 py-3 font-sans text-base text-zen-text transition hover:bg-white/10",
-                    )}
-                  >
-                    {t}
-                  </button>
-                </li>
-              ))}
-            </ul>
-
-            <PrimaryButton type="submit">
-              <span>Get Started !</span>
-            </PrimaryButton>
-          </form>
+          </div>
         </div>
       </div>
 

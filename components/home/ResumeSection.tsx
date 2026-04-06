@@ -7,17 +7,11 @@ export function ResumeSection() {
     <section id="resume" className="pb-0 pt-16 md:pb-10 md:pt-20">
       <SectionHeading tag="Resume" title="Education & Experience" />
 
-      <div className="relative space-y-0">
-        {resumeItems.map((item, i) => (
-          <div key={item.id} className="relative pl-10">
-            {i > 0 ? (
-              <span
-                className="absolute left-[13px] top-0 h-[86px] w-px -translate-x-1/2 bg-white/10"
-                aria-hidden
-              />
-            ) : null}
+      <div className="relative border-l border-white/10 pl-8 min-[1150px]:pl-10">
+        {resumeItems.map((item) => (
+          <div key={item.id} className="relative pb-10 last:pb-0">
             <span
-              className="absolute left-0 top-6 z-[1] size-4 rounded-full border-[3px] border-zen-primary bg-[#121212]"
+              className="absolute -left-[9px] top-8 z-[1] size-4 rounded-full border-[3px] border-zen-primary bg-[#121212] shadow-[0_0_0_4px_#121212]"
               aria-hidden
             />
             <div className="flex flex-col gap-3 rounded-[20px] border-t border-transparent bg-gradient-to-br from-white/0 to-white/0 px-5 py-5 transition hover:border-white/10 hover:from-white/10 sm:flex-row sm:items-start sm:justify-between">
@@ -27,7 +21,9 @@ export function ResumeSection() {
                     {item.title}
                   </Link>
                 </h5>
-                <span className="font-sans text-base text-zen-text">{item.org}</span>
+                <span className="font-sans text-base text-zen-text">
+                  {item.org}
+                </span>
                 {"description" in item && item.description ? (
                   <p className="mt-3 max-w-prose text-sm leading-relaxed text-zen-muted">
                     {item.description}

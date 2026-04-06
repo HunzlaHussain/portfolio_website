@@ -26,6 +26,12 @@ export const siteMeta = {
   },
 } as const;
 
+/** Cal.com embed — event type slug and namespace must match your Cal setup */
+export const calBooking = {
+  namespace: "30min",
+  link: "hunzla-hussain/30min",
+} as const;
+
 export const heroLines = [
   "Empower Code Intelligence",
 ] as const;
@@ -199,56 +205,11 @@ export const testimonials = [
   },
 ] as const;
 
-export const pricingPlans = {
-  standard: {
-    name: "Standard Plan",
-    price: "$29",
-    unit: "/per hour",
-    features: [
-      "60 keywords",
-      "6,000 monthly website visitors",
-      "8 blogs / month",
-      "10 quality backlinks / month",
-    ],
-  },
-  premium: {
-    name: "Premium Plan",
-    price: "$39",
-    unit: "/per hour",
-    features: [
-      "60 keywords",
-      "6,000 monthly website visitors",
-      "8 blogs / month",
-      "10 quality backlinks / month",
-    ],
-  },
-} as const;
-
-export const partnerLogos = [
-  "/images/logo/partner-1.png",
-  "/images/logo/partner-3.png",
-  "/images/logo/partner-2.png",
-  "/images/logo/partner-5.png",
-  "/images/logo/partner-8.png",
-  "/images/logo/partner-6.png",
-  "/images/logo/partner-9.png",
-  "/images/logo/partner-4.png",
-  "/images/logo/partner-7.png",
-] as const;
-
-export const budgetTags = [
-  "< $1,000",
-  "$1,000 - $5,000",
-  "$5,000 - $10,000",
-  "$10,000 - 20,000",
-  "< $20,000",
-] as const;
-
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#resume", label: "Resume" },
   { href: "#services", label: "Services" },
   { href: "#portfolio", label: "Portfolio" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/schedule", label: "Schedule" },
   { href: "#contact", label: "Contact" },
 ] as const;

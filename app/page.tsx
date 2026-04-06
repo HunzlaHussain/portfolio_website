@@ -6,8 +6,6 @@ import { ResumeSection } from "@/components/home/ResumeSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { PortfolioSection } from "@/components/home/PortfolioSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
-import { PricingSection } from "@/components/home/PricingSection";
-import { PartnersSection } from "@/components/home/PartnersSection";
 import { ContactSection } from "@/components/home/ContactSection";
 
 export default function HomePage() {
@@ -38,8 +36,6 @@ export default function HomePage() {
         <ServicesSection />
         <PortfolioSection />
         <TestimonialsSection />
-        <PricingSection />
-        <PartnersSection />
         <ContactSection />
       </main>
 

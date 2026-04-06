@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Epilogue, Inter, Sora } from "next/font/google";
 import "./globals.css";
+import { AppShell } from "@/components/providers/AppShell";
 import { siteMeta } from "@/content/site";
 
 const inter = Inter({
@@ -38,7 +39,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${sora.variable} ${epilogue.variable} h-full`}
     >
-      <body className="min-h-full font-sans antialiased">{children}</body>
+      <body className="min-h-full font-sans antialiased">
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }

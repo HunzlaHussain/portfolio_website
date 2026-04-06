@@ -1,5 +1,4 @@
 import { SiteHeader } from "@/components/home/SiteHeader";
-import { RightBar } from "@/components/home/RightBar";
 import { UserBar } from "@/components/home/UserBar";
 import { AboutSection } from "@/components/home/AboutSection";
 import { ResumeSection } from "@/components/home/ResumeSection";
@@ -38,8 +37,6 @@ export default function HomePage() {
         <TestimonialsSection />
         <ContactSection />
       </main>
-
-      <RightBar />
     </div>
   );
 }

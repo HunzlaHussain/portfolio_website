@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/home/SiteHeader";
-import { RightBar } from "@/components/home/RightBar";
 import { SchedulePageContent } from "@/components/cal/SchedulePageContent";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteMeta } from "@/content/site";
@@ -34,8 +33,6 @@ export default function SchedulePage() {
         </p>
         <SchedulePageContent />
       </main>
-
-      <RightBar />
     </div>
   );
 }

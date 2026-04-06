@@ -27,45 +27,51 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-[1000] isolate px-3 pt-[max(0.75rem,env(safe-area-inset-top,0px))] min-[400px]:px-4 min-[1150px]:pt-10">
       <GlassPanel className="relative mx-auto w-full min-w-0 max-w-[1320px] rounded-[24px] px-3 py-3 shadow-lg shadow-black/20 sm:rounded-[160px] sm:px-4 sm:py-3.5 md:px-6">
-        {/* Row: logo (content-sized) + menu right on small screens; centered nav from min-[1150px] */}
-        <div className="relative flex w-full min-w-0 items-center justify-between gap-3 min-[1150px]:min-h-[52px]">
-          <Link
-            href="/"
-            className="relative z-[2] inline-flex min-w-0 max-w-[min(100%,calc(100%-3.5rem))] items-center gap-3 sm:gap-3.5 min-[1150px]:max-w-[min(100%,22rem)]"
-          >
-            <span className="relative size-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-white/20 to-transparent ring-1 ring-white/15 min-[1150px]:size-[68px]">
-              {avatarFailed ? (
-                <span className="absolute inset-0 flex items-center justify-center font-brand text-base text-zen-text min-[1150px]:text-lg">
-                  {initials}
+        {/*
+          Balanced row: equal flex-1 sides so centered nav never sits under the brand.
+          (Absolute center + left block caused “About” to overlap the green role.)
+        */}
+        <div className="flex w-full min-w-0 items-center gap-2 min-[1150px]:gap-3">
+          <div className="min-w-0 flex-1">
+            <Link
+              href="/"
+              className="inline-flex max-w-full min-w-0 items-center gap-3 sm:gap-3.5"
+            >
+              <span className="relative size-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-white/20 to-transparent ring-1 ring-white/15 min-[1150px]:size-[68px]">
+                {avatarFailed ? (
+                  <span className="absolute inset-0 flex items-center justify-center font-brand text-base text-zen-text min-[1150px]:text-lg">
+                    {initials}
+                  </span>
+                ) : (
+                  <Image
+                    src={siteMeta.profileImage}
+                    alt=""
+                    width={68}
+                    height={68}
+                    className="h-full w-full object-cover"
+                    sizes="(max-width: 1149px) 48px, 68px"
+                    priority
+                    onError={() => setAvatarFailed(true)}
+                  />
+                )}
+              </span>
+              <span className="min-w-0 text-left">
+                <span className="block font-brand text-base font-medium leading-tight tracking-tight text-zen-text min-[1150px]:text-lg">
+                  {siteMeta.name}
                 </span>
-              ) : (
-                <Image
-                  src={siteMeta.profileImage}
-                  alt=""
-                  width={68}
-                  height={68}
-                  className="h-full w-full object-cover"
-                  sizes="(max-width: 1149px) 48px, 68px"
-                  priority
-                  onError={() => setAvatarFailed(true)}
-                />
-              )}
-            </span>
-            <span className="min-w-0 text-left">
-              <span className="block font-brand text-base font-medium leading-tight tracking-tight text-zen-text min-[1150px]:text-lg">
-                {siteMeta.name}
+                {/* Short line until xl — keeps nav column clear on mid-width desktops */}
+                <span className="mt-0.5 block text-[11px] font-semibold uppercase leading-snug tracking-wide text-zen-primary min-[1150px]:text-[10px] min-[1150px]:leading-tight xl:hidden">
+                  {siteMeta.roleShort}
+                </span>
+                <span className="mt-0.5 hidden text-[11px] font-semibold uppercase leading-tight tracking-[0.06em] text-zen-primary xl:line-clamp-2 xl:block xl:text-[11px] xl:tracking-[0.07em]">
+                  {siteMeta.role}
+                </span>
               </span>
-              <span className="mt-0.5 hidden text-[11px] font-semibold uppercase leading-snug tracking-wide text-zen-primary min-[1150px]:line-clamp-2 min-[1150px]:block min-[1150px]:text-[12px] min-[1150px]:tracking-[1.1px]">
-                {siteMeta.role}
-              </span>
-              <span className="mt-0.5 block text-[11px] font-semibold uppercase leading-snug tracking-wide text-zen-primary min-[1150px]:hidden">
-                {siteMeta.roleShort}
-              </span>
-            </span>
-          </Link>
+            </Link>
+          </div>
 
           <nav
-            className="absolute left-1/2 top-1/2 z-[1] hidden max-w-[min(100vw-18rem,46rem)] -translate-x-1/2 -translate-y-1/2 flex-wrap justify-center gap-x-4 gap-y-1 min-[1150px]:flex min-[1150px]:gap-x-6 xl:gap-10"
+            className="hidden shrink-0 flex-nowrap items-center gap-x-3 min-[1150px]:flex min-[1150px]:gap-x-5 xl:gap-x-8"
             aria-label="Primary"
           >
             {navLinks.map((l) => (
@@ -79,7 +85,7 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="relative z-[2] flex shrink-0 items-center">
+          <div className="flex min-w-0 flex-1 items-center justify-end">
             <button
               type="button"
               className="flex size-11 touch-manipulation items-center justify-center rounded-full border border-white/15 bg-white/10 text-zen-text shadow-sm transition hover:bg-white/15 active:scale-95 min-[1150px]:hidden"

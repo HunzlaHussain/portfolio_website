@@ -24,7 +24,12 @@ export function RotatingText({
   }, [words.length, intervalMs]);
 
   return (
-    <span className={cn("inline-block min-w-[8ch] text-zen-primary", className)}>
+    <span
+      className={cn(
+        "inline-block max-w-full min-w-0 text-zen-primary sm:min-w-[8ch]",
+        className,
+      )}
+    >
       <span className="inline-block transition-opacity duration-300">
         {words[index]}
       </span>

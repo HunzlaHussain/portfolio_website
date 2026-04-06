@@ -30,7 +30,7 @@ export function SectionHeading({
           />
           {tag}
         </div>
-        <h3 className="font-display text-2xl font-medium leading-tight text-zen-text sm:text-3xl md:text-[44px] md:leading-[60px]">
+        <h3 className="font-display text-[1.35rem] font-medium leading-snug text-zen-text min-[400px]:text-2xl sm:text-3xl md:text-[44px] md:leading-[60px]">
           {title}
         </h3>
       </div>

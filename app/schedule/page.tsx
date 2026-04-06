@@ -22,7 +22,7 @@ export default function SchedulePage() {
 
       <SiteHeader />
 
-      <main className="relative z-[1] mx-auto max-w-[1320px] px-4 pb-20 pt-[200px] min-[1150px]:pt-[233px]">
+      <main className="relative z-[1] mx-auto w-full min-w-0 max-w-[1320px] px-3 pb-16 pt-28 min-[400px]:px-4 sm:pb-20 sm:pt-36 md:pt-44 lg:pt-[200px] min-[1150px]:pt-[233px]">
         <SectionHeading
           tag="Schedule"
           title="Book a time that works for you"

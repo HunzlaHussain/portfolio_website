@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Epilogue, Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/providers/AppShell";
@@ -25,6 +25,13 @@ const epilogue = Epilogue({
 export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#111111",
 };
 
 export default function RootLayout({

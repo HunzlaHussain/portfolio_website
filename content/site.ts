@@ -9,6 +9,8 @@ export const siteMeta = {
     "Software Engineer portfolio — MERN stack & AI integration · Empower Code Intelligence",
   name: "Hunzla Hussain",
   role: "Software Engineer · MERN Stack & AI Integration",
+  /** One line for compact header on small screens */
+  roleShort: "SW Engineer · MERN & AI",
   /** Served from /public; encode spaces in the path for the browser URL. */
   profileImage: "/profile%20piick.jpeg",
   email: "hunzlahussain7869@gmail.com",
@@ -205,11 +207,12 @@ export const testimonials = [
   },
 ] as const;
 
+/** Root-prefixed hashes so links work from any route (e.g. /schedule), not only /. */
 export const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#resume", label: "Resume" },
-  { href: "#services", label: "Services" },
-  { href: "#portfolio", label: "Portfolio" },
+  { href: "/#about", label: "About" },
+  { href: "/#resume", label: "Resume" },
+  { href: "/#services", label: "Services" },
+  { href: "/#portfolio", label: "Portfolio" },
   { href: "/schedule", label: "Schedule" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ] as const;

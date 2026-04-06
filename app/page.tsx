@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <SiteHeader />
 
-      <main className="relative z-[1] mx-auto max-w-[1320px] px-4 pb-16 pt-[200px] min-[1150px]:pt-[233px]">
+      <main className="relative z-[1] mx-auto min-w-0 max-w-[1320px] px-3 pb-12 pt-28 min-[400px]:px-4 sm:pb-16 sm:pt-36 md:pt-44 lg:pt-[200px] min-[1150px]:pt-[233px]">
         <div className="flex flex-col gap-10 min-[1150px]:flex-row min-[1150px]:gap-0">
           <div className="min-[1150px]:w-4/12 min-[1150px]:shrink-0 min-[1150px]:pr-8">
             <UserBar />

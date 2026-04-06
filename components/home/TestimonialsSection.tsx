@@ -13,28 +13,28 @@ export function TestimonialsSection() {
 
   return (
     <section id="testimonial" className="pt-24 md:pt-[100px]">
-      <div className="mb-10 flex flex-col gap-6 md:mb-11 md:flex-row md:items-end md:justify-between">
+      <div className="mb-10 flex flex-col gap-4 sm:gap-6 md:mb-11 md:flex-row md:items-end md:justify-between">
         <SectionHeading
           tag="testimonials"
           title="Trusted By Clients"
-          className="mb-0"
+          className="mb-0 min-w-0"
         />
-        <div className="flex gap-3">
+        <div className="flex shrink-0 gap-2 sm:gap-3 md:self-end">
           <button
             type="button"
-            className="flex size-9 items-center justify-center rounded-full bg-white text-[#121212] md:size-[60px]"
+            className="flex size-11 touch-manipulation items-center justify-center rounded-full bg-white text-[#121212] sm:size-12 md:size-[60px]"
             aria-label="Previous testimonial"
             onClick={() => swiperRef.current?.slidePrev()}
           >
-            <IconCaretLeft className="size-8" />
+            <IconCaretLeft className="size-5 sm:size-7 md:size-8" />
           </button>
           <button
             type="button"
-            className="flex size-9 items-center justify-center rounded-full bg-white text-[#121212] md:size-[60px]"
+            className="flex size-11 touch-manipulation items-center justify-center rounded-full bg-white text-[#121212] sm:size-12 md:size-[60px]"
             aria-label="Next testimonial"
             onClick={() => swiperRef.current?.slideNext()}
           >
-            <IconCaretRight className="size-8" />
+            <IconCaretRight className="size-5 sm:size-7 md:size-8" />
           </button>
         </div>
       </div>
@@ -57,7 +57,9 @@ export function TestimonialsSection() {
                 <div className="mb-5 text-3xl text-zen-text">
                   <IconQuote className="size-9" />
                 </div>
-                <p className="mb-6 font-sans text-lg leading-8 text-zen-text">{t.quote}</p>
+                <p className="mb-6 font-sans text-base leading-7 text-zen-text sm:text-lg sm:leading-8">
+                  {t.quote}
+                </p>
               </div>
               <div>
                 <div className="mb-1 font-display text-lg text-zen-text">{t.name}</div>

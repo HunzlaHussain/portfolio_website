@@ -16,6 +16,17 @@ export function SchedulePageContent() {
       cal("ui", {
         hideEventTypeDetails: false,
         layout: "month_view",
+        styles: {
+          align: "left",
+        },
+        cssVarsPerTheme: {
+          dark: {
+            "--booker-main-width": "min(100%, 720px)",
+          },
+          light: {
+            "--booker-main-width": "min(100%, 720px)",
+          },
+        },
       });
       cal("inline", {
         calLink: calBooking.link,
@@ -35,7 +46,7 @@ export function SchedulePageContent() {
   return (
     <div
       id="cal-schedule-inline"
-      className="cal-inline-host min-h-[560px] w-full rounded-[20px] border border-white/10 bg-[#121212]/50 p-2 md:min-h-[640px] md:p-4"
+      className="cal-inline-host min-h-[560px] w-full max-w-full min-w-0 rounded-[20px] border border-white/10 bg-[#121212]/50 p-2 md:min-h-[640px] md:p-4"
     />
   );
 }

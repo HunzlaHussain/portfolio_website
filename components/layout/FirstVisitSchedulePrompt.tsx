@@ -41,7 +41,7 @@ export function FirstVisitSchedulePrompt({
 
   return (
     <div
-      className="fixed inset-0 z-[10040] flex items-end justify-center p-4 pb-8 min-[1150px]:items-center min-[1150px]:p-8"
+      className="fixed inset-0 z-[10040] flex items-end justify-center p-3 pb-[max(1.5rem,env(safe-area-inset-bottom,0px))] min-[400px]:p-4 min-[1150px]:items-center min-[1150px]:p-8"
       role="dialog"
       aria-modal="true"
       aria-labelledby="first-visit-schedule-title"
@@ -67,13 +67,17 @@ export function FirstVisitSchedulePrompt({
           or reach out via the contact section — whatever works best for you.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <PrimaryButton type="button" onClick={handleBook}>
+          <PrimaryButton
+            type="button"
+            className="w-full sm:w-auto"
+            onClick={handleBook}
+          >
             Book a meeting
           </PrimaryButton>
           <Link
             href="#contact"
             onClick={handleLater}
-            className="inline-flex h-14 items-center justify-center rounded-full border border-white/15 px-8 text-base font-semibold text-zen-text transition hover:border-white/25 hover:bg-white/5"
+            className="inline-flex h-14 w-full min-w-0 items-center justify-center rounded-full border border-white/15 px-6 text-center text-base font-semibold text-zen-text transition hover:border-white/25 hover:bg-white/5 sm:w-auto sm:px-8"
           >
             Contact instead
           </Link>

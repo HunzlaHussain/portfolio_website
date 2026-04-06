@@ -12,7 +12,7 @@ export function UserBar({ className }: UserBarProps) {
   return (
     <div
       className={cn(
-        "relative z-[99] overflow-hidden rounded-[20px] border-t border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] px-7 py-7 text-center backdrop-blur-md min-[1150px]:sticky min-[1150px]:top-[143px]",
+        "relative z-[99] overflow-hidden rounded-[20px] border-t border-white/10 bg-gradient-to-br from-white/10 to-white/[0.02] px-4 py-6 text-center backdrop-blur-md min-[400px]:px-7 min-[400px]:py-7 min-[1150px]:sticky min-[1150px]:top-[143px]",
         className,
       )}
     >
@@ -29,19 +29,21 @@ export function UserBar({ className }: UserBarProps) {
           />
         </div>
       </div>
-      <div className="font-brand text-4xl text-zen-text">{siteMeta.name}</div>
+      <div className="font-brand text-2xl text-zen-text min-[400px]:text-3xl sm:text-4xl">
+        {siteMeta.name}
+      </div>
       <div className="mb-4 mt-2 text-[12px] font-semibold uppercase tracking-[1.1px] text-zen-primary">
         {siteMeta.role}
       </div>
       <Link
         href={`mailto:${siteMeta.email}`}
-        className="mb-1 block text-base text-zen-text underline-offset-4 hover:underline"
+        className="mb-1 block break-words text-sm text-zen-text underline-offset-4 hover:underline min-[400px]:text-base"
       >
         {siteMeta.email}
       </Link>
       <Link
         href={`tel:${siteMeta.phone.tel}`}
-        className="mb-1 block text-base text-zen-text underline-offset-4 hover:underline"
+        className="mb-1 block text-sm text-zen-text underline-offset-4 hover:underline min-[400px]:text-base"
       >
         {siteMeta.phone.display}
       </Link>

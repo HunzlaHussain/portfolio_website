@@ -12,15 +12,15 @@ export function AboutSection() {
           <span className="inline-block size-2 rounded-full bg-zen-primary" />
           About
         </div>
-        <div className="relative inline-block max-w-max rounded-lg border border-zen-primary/40 p-2">
-          <h4 className="font-display text-xl font-medium text-zen-text sm:text-2xl md:text-[32px] md:leading-10">
+        <div className="relative inline-block max-w-full rounded-lg border border-zen-primary/40 p-2">
+          <h4 className="font-display text-lg font-medium leading-snug text-zen-text min-[400px]:text-xl sm:text-2xl md:text-[32px] md:leading-10">
             Hello! I&apos;m{" "}
             <RotatingText words={rotatingRoles} className="text-zen-primary" />
           </h4>
         </div>
       </div>
 
-      <h1 className="font-display mb-4 text-4xl font-medium leading-tight text-zen-text sm:text-5xl md:text-6xl lg:text-[80px] lg:leading-[88px]">
+      <h1 className="font-display mb-4 text-[1.65rem] font-medium leading-[1.15] tracking-tight text-zen-text min-[400px]:text-4xl sm:text-5xl md:text-6xl lg:text-[80px] lg:leading-[88px]">
         Empower Code Intelligence
       </h1>
       <p className="mb-10 max-w-3xl font-sans text-base leading-7 text-zen-muted md:text-lg md:leading-8">

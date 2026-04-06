@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Local display font (theme “font-2”). Add the file from your theme pack:
+   public/fonts/Nasalization-Rg.otf — same face as the original @font-face. */
+@font-face {
+  font-family: "Nasalization";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Nasalization-Rg.otf") format("opentype");
+}
+
+/* ZenG theme tokens — mirror the original CSS variables */
+:root {
+  --zen-primary: #45e77b;
+  --zen-bg: #111111;
+  --zen-text: #ffffff;
+  --zen-muted: #a6a7ae;
+  --zen-secondary: #616161;
+  --zen-panel: linear-gradient(
+    123.51deg,
+    rgba(215, 237, 237, 0.1) -61.8%,
+    rgba(204, 235, 235, 0.01) 100%
+  );
+  --zen-border: rgba(255, 255, 255, 0.1);
+  --font-nasalization: "Nasalization", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root[data-theme="light"] {
+  --zen-bg: #f8f7f4;
+  --zen-text: #121212;
+  --zen-muted: #121212;
+  --zen-secondary: #616161;
+  --zen-panel: #ffffff;
+}
+
+@theme inline {
+  --color-zen-primary: var(--zen-primary);
+  --color-zen-bg: var(--zen-bg);
+  --color-zen-text: var(--zen-text);
+  --color-zen-muted: var(--zen-muted);
+  --color-zen-secondary: var(--zen-secondary);
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-epilogue), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-nasalization);
+  --font-ui: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--zen-bg);
+  color: var(--zen-text);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--zen-primary) 35%, transparent);
+}
